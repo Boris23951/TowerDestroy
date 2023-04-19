@@ -14,6 +14,8 @@ public class Tower : MonoBehaviour
 
     [SerializeField] AudioSource _towerComplete;
 
+    public UnityEvent<int> TowerSizeOutput;
+
     private void Start()
     {
         _towerBuilder = GetComponent<TowerBuilder>();
@@ -24,6 +26,7 @@ public class Tower : MonoBehaviour
             target.BulletHit += OnBulletHit;
         }
         SizeUpdated?.Invoke(_targets.Count);
+        TowerSizeOutput?.Invoke(_targets.Count);
     }
     private void OnBulletHit(Target HitedTarget)
     {

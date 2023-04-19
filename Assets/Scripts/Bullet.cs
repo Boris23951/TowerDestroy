@@ -27,10 +27,10 @@ public class Bullet : MonoBehaviour
         {
             target.Break();
             Destroy(gameObject);
-            if (other.gameObject.name == "BonusTarget")
+            /*if (other.gameObject.name == "BonusTarget")
             {
                 BonusDoubleDamageActive();
-            }
+            }*/
         }
         if(other.TryGetComponent(out Obstacale obstacale))
         {
@@ -49,9 +49,5 @@ public class Bullet : MonoBehaviour
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
         rigidbody.AddExplosionForce(_bounceForce, transform.position + new Vector3(0, -1, 1), _bounceRadius); 
-    }
-    private void BonusDoubleDamageActive()
-    {
-        
     }
 }

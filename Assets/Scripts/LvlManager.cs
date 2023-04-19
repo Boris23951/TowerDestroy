@@ -25,6 +25,8 @@ public class LvlManager : MonoBehaviour
     public static bool shootOn;
     private bool bonusRound;
 
+    [SerializeField] private GameObject tutorial;
+
     private void Awake()
     {
         towerOff1 = GameObject.Find("TowerOff1");
@@ -47,6 +49,16 @@ public class LvlManager : MonoBehaviour
         towerOff1Material.DOColor(new Color32(47, 3, 74, 0), 0.1f);
         towerOff2Material.DOColor(new Color32(47, 3, 74, 0), 0.1f);
         towerOff3Material.DOColor(new Color32(47, 3, 74, 0), 0.1f);
+
+        TutorialManager();
+    }
+    private void TutorialManager()
+    {
+        if(Player._tutorialComplete == false)
+        {
+            tutorial.SetActive(true);
+            Player._tutorialComplete = true;
+        }
     }
     private void OnEnable()
     {
@@ -114,9 +126,9 @@ public class LvlManager : MonoBehaviour
         }
         else
         {
-            ObjectCompleteLvl.SetActive(true);
             Player._lvlNumber++;
-            Invoke("LoadScene0", 1f);
+            ObjectCompleteLvl.SetActive(true);
+            Invoke("LoadScene0", 1.5f);
         }
         shootOn = false;
     }
@@ -166,5 +178,10 @@ public class LvlManager : MonoBehaviour
             middleButtion.SetActive(false);
             rightButtion.SetActive(false);
         }
+    }
+    public void TutorialSetActiveFalse()
+    {
+        tutorial.SetActive(false);
+        OnGameplay(true);
     }
 }

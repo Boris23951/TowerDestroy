@@ -8,13 +8,13 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] private Target _target;
     [SerializeField] private Color[] _colors;
     int _targetNumber;
-    int _bonusTarget;
+    //int _bonusTarget;
 
     private List<Target> _targets;
     private void Awake()
     {
         TowerSizeGenerator();
-        _bonusTarget = Random.Range(1, _towerSize*5);
+        //_bonusTarget = Random.Range(1, _towerSize*5);
     }
     public List<Target> Build() 
     {

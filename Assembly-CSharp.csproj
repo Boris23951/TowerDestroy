@@ -60,6 +60,7 @@
     <Compile Include="Assets\YandexGame\Example\Scripts\RewardedAd.cs" />
     <Compile Include="Assets\YandexGame\ScriptsYG\InfoYG.cs" />
     <Compile Include="Assets\YandexGame\Example\Scripts\GetLederboardData.cs" />
+    <Compile Include="Assets\Scripts\UI\UiLvl.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerBuilder.cs" />
     <Compile Include="Assets\Scripts\LvlManager.cs" />
     <Compile Include="Assets\Scripts\UI\HealthSystem.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\YandexGame\Example\Scripts\GetPlayerData.cs" />
     <Compile Include="Assets\Scripts\UI\MoneyDisplay.cs" />
     <Compile Include="Assets\YandexGame\Example\Scripts\SwitchSceneTest.cs" />
+    <Compile Include="Assets\Scripts\Tutorial.cs" />
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerCloser.cs" />
     <Compile Include="Assets\Scripts\ObstacaleRotator.cs" />

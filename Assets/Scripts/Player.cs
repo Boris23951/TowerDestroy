@@ -5,6 +5,7 @@ using System;
 public class Player : MonoBehaviour
 {
     public static int _lvlNumber;
+    public static bool _tutorialComplete;
 
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private Bullet _bulletTemplate;
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
     public static int _playerHealth;
     public static Action onTakeDamage;
     public static bool shootOnTouch;
+
+    [SerializeField] private AudioSource _shootSound;
 
     private void Awake()
     {
@@ -38,9 +41,9 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _timeAfterShoot += Time.deltaTime;
-        if (shootOnTouch && LvlManager.shootOn)//fix this!!!!
+        if (shootOnTouch && LvlManager.shootOn)
         {
-            ShootDelay();
+            Invoke("ShootDelay", 0.1f);
         }
     }
     private void ShootDelay()
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
     {
         Instantiate(_bulletTemplate, _shootPoint.position, Quaternion.identity);
         ShootAnimation();
+        _shootSound.Play();
     }
     private void ShootAnimation()
     {
@@ -76,5 +80,6 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.Load();
 
         Player._lvlNumber = data._level;
+        Player._tutorialComplete = data._tutorialWasEnd;
     }
 }
